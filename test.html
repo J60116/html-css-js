@@ -16,5 +16,11 @@
         <p>こんにちは</p>
         <p>こんばんは</p>
     </div>
+    <script>
+        const oyasumi = document.createElement('p');
+        oyasumi.textContent = 'おやすみ';
+        const greets = document.getElementsByClassName('greet');
+        greets[0].appendChild(oyasumi);
+    </script>
 </body>
 </html>
