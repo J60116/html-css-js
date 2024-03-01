@@ -1,0 +1,23 @@
+h1{
+    color: brown;
+}
+body{
+    text-align: center;
+    background-color: rgb(250, 220, 220); 
+}
+.greet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.greet p {
+    /* "font-size" 文字のサイズを変更する / "rem" <html>タグに対する相対値 */
+    font-size: 1.5rem;
+    /* "padding" borderとコンテンツとの間の余白　背景が表示される */
+    padding: 10px;
+    /* "margin" borderと他のコンテンツとの間の余白　背景は表示されない */
+    margin: 10px;
+}
+.greet p:hover{
+    background-color: white;
+}
