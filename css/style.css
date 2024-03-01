@@ -20,4 +20,5 @@ body{
 }
 .greet p:hover{
     background-color: white;
+    color: brown;
 }
