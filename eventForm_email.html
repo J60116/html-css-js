@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <form>
+        Email: <input type="email" name="email" id="email"> <input type="button"  value="＠で分割" id="btn">
+    </form>
+    <p id="error"> </p>
+    <p>ユーザー名: <span id="userName"></span></p>
+    <p>ドメイン名: <span id="domainName"></span></p>
+    <script>
+        document.getElementById('btn').addEventListener('click',()=>{
+            let email = document.getElementById('email').value;
+            if(email===""){
+                let error = document.getElementById('error');
+                error.textContent = 'メールアドレスを入力してください';
+                error.style.color = 'red';
+                return;
+            }
+            let [user,domain] = email.split('@');
+            document.getElementById('error').textContent = '';
+            document.getElementById('userName').textContent = user;
+            document.getElementById('domainName').textContent = domain;
+        })
+    </script>
+</body>
+</html>
