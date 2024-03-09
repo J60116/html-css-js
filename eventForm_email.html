@@ -7,22 +7,31 @@
 </head>
 <body>
     <form>
-        Email: <input type="email" name="email" id="email"> <input type="button"  value="＠で分割" id="btn">
+        Email: <input type="email" name="email" id="email"> <input type="button"  value="＠で分割" id="btn" disabled>
     </form>
     <p id="error"> </p>
     <p>ユーザー名: <span id="userName"></span></p>
     <p>ドメイン名: <span id="domainName"></span></p>
     <script>
+        document.getElementById('email').addEventListener('change',()=>{
+            const btn = document.getElementById('btn');
+            const error = document.getElementById('error');
+            let email = document.getElementById('email').value;
+            let [user,domain] = email.split('@');
+            if(email.indexOf('@')!==-1&&user!==''&&domain!==''){
+                btn.disabled = false;
+                error.textContent = '';
+            } else {
+                btn.disabled = true;
+                error.textContent = '有効なメールアドレスを入力してください';
+                error.style.color = 'red';
+                form.style.color = red;
+            }
+            
+        })
         document.getElementById('btn').addEventListener('click',()=>{
             let email = document.getElementById('email').value;
-            if(email===""){
-                let error = document.getElementById('error');
-                error.textContent = 'メールアドレスを入力してください';
-                error.style.color = 'red';
-                return;
-            }
             let [user,domain] = email.split('@');
-            document.getElementById('error').textContent = '';
             document.getElementById('userName').textContent = user;
             document.getElementById('domainName').textContent = domain;
         })
