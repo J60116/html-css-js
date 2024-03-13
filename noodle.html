@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演習</title>
+    <!-- キッチンタイマー3分の作成
+    ボタンをクリックしたらカウントダウンが始まり、設定時間が経過したら終了メッセージを表示する -->
+    <script src="js/noodle.js" defer></script>
+    <style>
+        #msg{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    タイマー設定時間：<select id="select">
+        <option value="1" class="minute">1分</option>
+        <option value="2" class="minute">2分</option>
+        <option value="3" class="minute" selected>3分</option>
+        <option value="4" class="minute">4分</option>
+        <option value="5" class="minute">5分</option>
+    </select>
+    <button id="btn">開始</button>
+    <p id="timer"></p>
+</body>
+</html>
