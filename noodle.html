@@ -8,6 +8,10 @@
     ボタンをクリックしたらカウントダウンが始まり、設定時間が経過したら終了メッセージを表示する -->
     <script src="js/noodle.js" defer></script>
     <style>
+        #timer{
+            color: black;
+            font-size: 2rem;
+        }
         #msg{
             color: red;
         }
@@ -22,6 +26,7 @@
         <option value="5" class="minute">5分</option>
     </select>
     <button id="btn">開始</button>
-    <p id="timer"></p>
+    <p id="timer">03:00</p>
+    <p id="msg"></p>
 </body>
 </html>

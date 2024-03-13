@@ -5,9 +5,27 @@ const btn = document.getElementById('btn');
 const select = document.getElementById('select');
 const elements = document.getElementsByClassName('minute');
 const timer = document.getElementById('timer');
+const msg = document.getElementById('msg');
+
+// ドロップダウンリストを選択したときのイベント処理
+select.addEventListener('select',()=>{
+    if(msg.textContent!==""){
+        msg.textContent = "";
+    }
+    for(let i=0; i<elements.length; i++){
+        if(elements[i].selected){
+            mm_set = elements[i].value;
+            timer.textContent = `0${mm_set}:00`;
+            break;
+        }
+    }
+})
 
 // 開始ボタンをクリックしたときのイベント処理
 btn.addEventListener('click',()=>{
+    if(msg.textContent!==""){
+        msg.textContent = "";
+    }
     if(timerId===-1){
         // ボタンとリストを利用不可に設定
         btn.disabled = true;
@@ -49,8 +67,8 @@ btn.addEventListener('click',()=>{
                 // 停止状態を示す-1に戻す
                 timerId = -1;
                 // 結果をwebページに表示
-                timer.textContent = `${mm_set}分経過しました`;
-                timer.style.color = 'red';
+                timer.textContent = '00:00';
+                msg.textContent = `${mm_set}分経過しました`;
                 // ボタンとリストを利用可能に設定
                 btn.disabled = false;
                 select.disabled = false;
